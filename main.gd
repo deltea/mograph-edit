@@ -60,7 +60,7 @@ func _on_beat(pos: int) -> void:
 		work.scale = Vector3.ZERO
 		var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 		tween.tween_property(work, "scale", Vector3.ONE, Conductor.BEAT).set_trans(Tween.TRANS_SPRING)
-		tween.tween_property(work, "rotation_degrees:z", rand_rot, Conductor.BEAT).set_trans(Tween.TRANS_SPRING)
+		tween.tween_property(work, "rotation_degrees:z", rand_rot, Conductor.BEAT * 1.5).set_trans(Tween.TRANS_SPRING)
 		tween.tween_property(cam, "rotation_degrees:z", 10 * (1 if pos % 2 == 0 else -1), Conductor.BEAT)
 
 	if pos == 24:
