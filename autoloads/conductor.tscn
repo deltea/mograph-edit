@@ -5,5 +5,6 @@
 
 [node name="Conductor" type="AudioStreamPlayer" unique_id=759406385]
 stream = ExtResource("1_bk88x")
+bus = &"Music"
 script = ExtResource("1_2pwio")
 start_beat_offset = 62

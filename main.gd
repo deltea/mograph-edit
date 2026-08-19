@@ -32,6 +32,7 @@ func _process(dt: float) -> void:
 func _on_beat(pos: int) -> void:
 	if pos == -1:
 		rig.move_cam_to_next_marker(Conductor.TWO_BEAT)
+
 	if pos == 1:
 		is_backing_up = true
 
@@ -50,14 +51,17 @@ func _on_beat(pos: int) -> void:
 		var work := work_scene.instantiate() as Node3D
 		add_child(work)
 		work.position = cam.global_position + cam.global_transform.basis.z * -1.0
-		var rand_rot := randf_range(-30, 30)
-		work.rotation_degrees.z = -rand_rot
-		work.position.x += randf_range(-1, 1)
-		work.position.y += randf_range(-1, 1)
+		var rand_rot := randf_range(-60, 60) * (-1 if pos % 2 == 0 else 1)
+		var rand_pos_rot := deg_to_rad(randf_range(0, 360))
+		work.rotation_degrees.z = 0
+		var unit_circle := Vector2(cos(rand_pos_rot), sin(rand_pos_rot))
+		work.position.x += unit_circle.x
+		work.position.y += unit_circle.y
 		work.scale = Vector3.ZERO
 		var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
-		tween.tween_property(work, "scale", Vector3.ONE, Conductor.BEAT)
+		tween.tween_property(work, "scale", Vector3.ONE, Conductor.BEAT).set_trans(Tween.TRANS_SPRING)
 		tween.tween_property(work, "rotation_degrees:z", rand_rot, Conductor.BEAT).set_trans(Tween.TRANS_SPRING)
+		tween.tween_property(cam, "rotation_degrees:z", 10 * (1 if pos % 2 == 0 else -1), Conductor.BEAT)
 
 	if pos == 24:
 		var tween := create_tween()
