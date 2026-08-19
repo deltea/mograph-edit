@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://2or3wqqt2oqr"]
 
-[ext_resource type="Script" uid="uid://c7otvxlgoxe5t" path="res://autoloads/Conductor.gd" id="1_2pwio"]
+[ext_resource type="Script" uid="uid://c7otvxlgoxe5t" path="res://autoloads/conductor.gd" id="1_2pwio"]
+[ext_resource type="AudioStream" uid="uid://cqeswleahgqhk" path="res://assets/audio/music/dashstar.mp3" id="1_bk88x"]
 
 [node name="Conductor" type="AudioStreamPlayer" unique_id=759406385]
+stream = ExtResource("1_bk88x")
 script = ExtResource("1_2pwio")
+start_beat_offset = 62
