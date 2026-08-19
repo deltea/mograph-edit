@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dr5v7fm0kx0v3"]
+
+[ext_resource type="PackedScene" uid="uid://dlqs2lt16wdee" path="res://scenes/camera/camera.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dr1giiqeaf6rp" path="res://assets/textures/grid.png" id="2_0xm2m"]
+[ext_resource type="Shader" uid="uid://b18yv76dri8c2" path="res://shaders/crt.gdshader" id="3_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("3_h2yge")
+shader_parameter/brightness = 2.0
+shader_parameter/contrast = 1.08
+shader_parameter/saturation = 1.6370000777575
+shader_parameter/gamma = 2.23000009940523
+shader_parameter/curvature = 0.0
+shader_parameter/corner_soften = 0.0
+shader_parameter/vignette = 0.4870000231325
+shader_parameter/scanline_strength = 0.6610000313975
+shader_parameter/scanline_density = 1.15
+shader_parameter/interlace_strength = 0.2
+shader_parameter/mask_strength = 0.22
+shader_parameter/mask_scale = 1.0
+shader_parameter/chroma_offset_px = 4.00000019
+shader_parameter/luma_smear_px = 5.0000002375
+shader_parameter/jitter_px = 1.8
+shader_parameter/wobble_px = 1.5
+shader_parameter/tape_noise = 0.22
+shader_parameter/tape_lines = 0.2000000095
+shader_parameter/roll_speed = 0.1
+shader_parameter/roll_strength = 0.15
+shader_parameter/glow_strength = 0.25
+shader_parameter/glow_threshold = 0.65
+
+[sub_resource type="Environment" id="Environment_7dm0k"]
+background_mode = 1
+background_color = Color(0, 0.07058824, 0.99215686, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_0xm2m")
+albedo_texture_force_srgb = true
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
+material = SubResource("StandardMaterial3D_ig7tw")
+size = Vector2(400, 400)
+
+[node name="Main" type="Node3D" unique_id=218409027]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1555539069]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=99239655]
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1418835841]
+environment = SubResource("Environment_7dm0k")
+
+[node name="Camera" parent="." unique_id=2110450181 instance=ExtResource("1_ig7tw")]
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=2084267417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("PlaneMesh_ig7tw")
