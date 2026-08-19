@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://7o6lyckw8g1m"]
+
+[node name="Work" type="Node3D" unique_id=510236911]
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1689179035]
+texture_filter = 0
+text = "work"
+outline_size = 0

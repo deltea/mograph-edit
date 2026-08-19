@@ -12,7 +12,6 @@ class_name Camera extends Camera3D
 func _ready() -> void:
 	if not get_parent() is CameraRig:
 		printerr("camera \"" + name + "\" doesn't have a rig as a parent")
-		
 		return
 
 	rig = get_parent() as CameraRig
