@@ -51,6 +51,7 @@ func _process(dt: float) -> void:
 	cam_accel += 0.1 * dt
 
 	base.position = base.position.lerp(Vector2.ZERO, 20.0 * dt)
+	base.scale = base.scale.lerp(Vector2.ONE, 20.0 * dt)
 
 
 func _on_beat(pos: int) -> void:
@@ -114,3 +115,4 @@ func drop_beat(num: int) -> void:
 	flashbang.color = Color(colors[num % colors.size()])
 	grid.get_child(num).self_modulate.a = 1.0
 	base.position.y = 48.0
+	base.scale = Vector2.ONE * 1.1
