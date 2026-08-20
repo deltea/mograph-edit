@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://br3pn1qwjnyqv" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dlqs2lt16wdee" path="res://scenes/camera/camera.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dr1giiqeaf6rp" path="res://assets/textures/grid.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://10h8y40kucvt" path="res://assets/textures/x.png" id="3_272bh"]
 [ext_resource type="Shader" uid="uid://b18yv76dri8c2" path="res://shaders/crt.gdshader" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b70i16bp0hiar" path="res://scenes/camera/camera_rig.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cy5wxvvh6dxxx" path="res://scenes/waveform_visualizer/waveform_visualizer.tscn" id="6_7mycd"]
@@ -65,6 +66,7 @@ albedo_color = Color(3.465414e-06, 0.05144579, 0.7048556, 1)
 
 [node name="Main" type="Node3D" unique_id=218409027]
 script = ExtResource("1_1bvp3")
+drop_pattern = Array[bool]([true, false, false, false, true, false, true, true, true, false, true, false, true, false, false, false, true, true, true, false, true, false, true, false, true, false, false, false, false, false, false, false])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1555539069]
 
@@ -82,7 +84,119 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0)
+color = Color(0.8784314, 0.8784314, 0.8784314, 0)
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=263599580]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -464.0
+offset_right = 464.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1490498978]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1820132325]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=2122884294]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=219435422]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1222383331]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=987214044]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1981965902]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1697599102]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect9" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=561290667]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect10" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1286103173]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect11" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1648070478]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect12" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1148748877]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect13" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1800178820]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect14" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=755104294]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect15" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1851769149]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
+
+[node name="TextureRect16" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1428591569]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_272bh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1418835841]
 environment = SubResource("Environment_7dm0k")

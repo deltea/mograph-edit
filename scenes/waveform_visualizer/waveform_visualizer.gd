@@ -42,8 +42,8 @@ func _process(_dt: float) -> void:
 		energy = smoothed_energy[i]
 
 		var x := (i - freq_bands / 2.0) * bar_width
-		var half_w := bar_width * 0.4
-		var depth := 0.05
+		var half_w := bar_width * 0.3
+		var depth := 0.2
 		var z0 := -depth * 0.5
 		var z1 := depth * 0.5
 		var y0 := 0.0
