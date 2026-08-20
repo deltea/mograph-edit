@@ -12,8 +12,9 @@ const colors := ["#fc7f7f", "#8da5f3", "#8da5f3", "#ffca5f", "#e0e0e0"]
 @onready var rig: CameraRig = $CameraRig
 @onready var cam: Camera3D = $CameraRig/Camera
 @onready var label: Label3D = $Label3D
-@onready var flashbang: ColorRect = $CanvasLayer/Flashbang
-@onready var grid: GridContainer = $CanvasLayer/GridContainer
+@onready var flashbang: ColorRect = $CanvasLayer/Base/Flashbang
+@onready var grid: GridContainer = $CanvasLayer/Base/GridContainer
+@onready var base: Control = $CanvasLayer/Base
 
 
 var is_backing_up: bool = false
@@ -48,6 +49,8 @@ func _process(dt: float) -> void:
 
 	cam_vel += cam_accel * dt
 	cam_accel += 0.1 * dt
+
+	base.position = base.position.lerp(Vector2.ZERO, 20.0 * dt)
 
 
 func _on_beat(pos: int) -> void:
@@ -110,3 +113,4 @@ func clear_drop() -> void:
 func drop_beat(num: int) -> void:
 	flashbang.color = Color(colors[num % colors.size()])
 	grid.get_child(num).self_modulate.a = 1.0
+	base.position.y = 48.0
