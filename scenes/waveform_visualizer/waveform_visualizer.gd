@@ -1,12 +1,16 @@
 extends MeshInstance3D
 
 
+@export var BAR_WIDTH: float = 0.65
+@export var BAR_DEPTH: float = 0.2
+@export var BAR_HEIGHT_SCALE: float = 1.0
+
+
 var spectrum: AudioEffectSpectrumAnalyzerInstance
 var min_hz := 120.0
 var max_hz := 11050 / 4.0
 var freq_bands := 256
 var frequency_repeats := 8
-var bar_width := 0.65
 var smoothed_energy: Array[float] = []
 
 
@@ -35,17 +39,15 @@ func _process(_dt: float) -> void:
 		var hz := min_hz + pow(t1, 2.5) * (max_hz - min_hz)
 		var t := t1
 
-		# Get magnitude for the frequency range
 		var mag := spectrum.get_magnitude_for_frequency_range(prev_hz, hz)
-		var energy := clampf((mag.length() + mag.y) * 100.0, 0.0, 100.0)
+		var energy := clampf((mag.length() + mag.y) * 100.0 * BAR_HEIGHT_SCALE, 0.0, 100.0 * BAR_HEIGHT_SCALE)
 		smoothed_energy[i] = lerpf(smoothed_energy[i], energy, 0.15)
 		energy = smoothed_energy[i]
 
-		var x := (i - freq_bands / 2.0) * bar_width
-		var half_w := bar_width * 0.3
-		var depth := 0.2
-		var z0 := -depth * 0.5
-		var z1 := depth * 0.5
+		var x := (i - freq_bands / 2.0) * BAR_WIDTH
+		var half_w := BAR_WIDTH * 0.3
+		var z0 := -BAR_DEPTH * 0.5
+		var z1 := BAR_DEPTH * 0.5
 		var y0 := 0.0
 		var y1 := energy
 		var x0 := x - half_w

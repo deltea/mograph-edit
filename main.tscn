@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://b18yv76dri8c2" path="res://shaders/crt.gdshader" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b70i16bp0hiar" path="res://scenes/camera/camera_rig.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cy5wxvvh6dxxx" path="res://scenes/waveform_visualizer/waveform_visualizer.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b24jkkhxpfi4q" path="res://scenes/beat_pattern/beat_pattern.tscn" id="8_5vw27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
 shader = ExtResource("3_h2yge")
@@ -59,14 +60,9 @@ base_font = SubResource("SystemFont_lquwl")
 variation_transform = Transform2D(1.44, 0, 0, 0.9, 0, 0)
 spacing_glyph = 4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
-cull_mode = 2
-shading_mode = 0
-albedo_color = Color(3.465414e-06, 0.05144579, 0.7048556, 1)
-
 [node name="Main" type="Node3D" unique_id=218409027]
 script = ExtResource("1_1bvp3")
-drop_pattern = Array[bool]([true, false, false, false, true, false, true, true, true, false, true, false, true, false, false, false, true, true, true, false, true, false, true, false, true, false, false, false, false, false, false, false])
+drop_pattern = Array[bool]([true, false, false, false, true, false, true, true, true, false, true, false, true, false, false, false, true, true, true, false, true, false, true, false, true, false, true, false, true, false, false, false])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1555539069]
 
@@ -101,6 +97,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.8784314, 0.8784314, 0.8784314, 0)
 
+[node name="Pixelation" type="ColorRect" parent="CanvasLayer/Base" unique_id=1610449163]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Base" unique_id=263599580]
 layout_mode = 1
 anchors_preset = 8
@@ -119,96 +121,112 @@ theme_override_constants/v_separation = 0
 columns = 4
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1490498978]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1820132325]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=2122884294]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=219435422]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1222383331]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=987214044]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1981965902]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect8" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1697599102]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=561290667]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect10" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1286103173]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect11" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1648070478]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect12" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1148748877]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect13" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1800178820]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect14" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=755104294]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect15" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1851769149]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_272bh")
 
 [node name="TextureRect16" type="TextureRect" parent="CanvasLayer/Base/GridContainer" unique_id=1428591569]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -223,7 +241,7 @@ environment = SubResource("Environment_7dm0k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.290635)
 
 [node name="Marker#0" type="Marker3D" parent="CameraRig" unique_id=1781613279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.9675915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="Marker#1" type="Marker3D" parent="CameraRig" unique_id=1439527151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.78732884)
@@ -247,8 +265,10 @@ transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49
 
 [node name="WaveformVisualizer" parent="." unique_id=292837804 instance=ExtResource("6_7mycd")]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -10, -3, 56)
-material_override = SubResource("StandardMaterial3D_7mycd")
 
 [node name="WaveformVisualizer2" parent="." unique_id=939467883 instance=ExtResource("6_7mycd")]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 10, -3, 56)
-material_override = SubResource("StandardMaterial3D_7mycd")
+
+[node name="BeatPattern" parent="." unique_id=932858394 instance=ExtResource("8_5vw27")]
+pattern = Array[bool]([false, false, false, false, false, false, false, false])
+bars = 2

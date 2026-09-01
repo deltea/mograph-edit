@@ -3,7 +3,7 @@ extends Node3D
 
 const work_scene := preload("res://scenes/work/work.tscn")
 const icons_path := "res://assets/icons/"
-const colors := ["#fc7f7f", "#8da5f3", "#8da5f3", "#ffca5f", "#e0e0e0"]
+const colors := ["#fc7f7f", "#8da5f3", "#6AFF7C", "#ffca5f", "#e0e0e0"]
 
 
 @export var drop_pattern: Array[bool] = []
@@ -50,8 +50,8 @@ func _process(dt: float) -> void:
 	cam_vel += cam_accel * dt
 	cam_accel += 0.1 * dt
 
-	base.position = base.position.lerp(Vector2.ZERO, 20.0 * dt)
-	base.scale = base.scale.lerp(Vector2.ONE, 20.0 * dt)
+	base.position = base.position.lerp(Vector2.ZERO, 30.0 * dt)
+	base.scale = base.scale.lerp(Vector2.ONE, 40.0 * dt)
 
 
 func _on_beat(pos: int) -> void:
@@ -87,7 +87,7 @@ func _on_beat(pos: int) -> void:
 		work.scale = Vector3.ONE * 3.0
 		var tween := create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT).set_parallel()
 		tween.tween_property(work, "scale", Vector3.ONE * 1.5, Conductor.BEAT).set_trans(Tween.TRANS_SPRING)
-		tween.tween_property(work, "rotation_degrees:z", rand_rot, Conductor.BEAT * 1.5).set_trans(Tween.TRANS_SPRING)
+		tween.tween_property(work, "rotation_degrees:z", rand_rot, Conductor.TWO_BEAT).set_trans(Tween.TRANS_SPRING)
 		tween.tween_property(cam, "rotation_degrees:z", 4 * (1 if pos % 2 == 0 else -1), Conductor.BEAT)
 
 		icon_idx = (icon_idx + 1) % icons.size()
@@ -109,10 +109,12 @@ func _on_beat(pos: int) -> void:
 func clear_drop() -> void:
 	for child in grid.get_children():
 		child.self_modulate.a = 0.0
+		# var rand_texture := icons[randi() % icons.size()]
+		# child.texture = rand_texture
 
 
 func drop_beat(num: int) -> void:
 	flashbang.color = Color(colors[num % colors.size()])
 	grid.get_child(num).self_modulate.a = 1.0
 	base.position.y = 48.0
-	base.scale = Vector2.ONE * 1.1
+	# base.scale = Vector2.ONE * 1.05

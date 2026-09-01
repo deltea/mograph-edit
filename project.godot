@@ -35,6 +35,10 @@ window/size/viewport_width=2160
 window/size/viewport_height=1440
 window/stretch/mode="viewport"
 
+[global_group]
+
+beat_pattern=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

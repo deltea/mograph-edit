@@ -2,6 +2,8 @@ extends AudioStreamPlayer
 
 
 signal beat(pos: int)
+signal half_beat(pos: int)
+signal quarter_beat(pos: int)
 
 
 @export var bpm: int = 126
@@ -23,9 +25,15 @@ var last_beat: int = -4
 # this tracks
 var beat_offset: int = start_beat_offset
 
+var beat_patterns: Array[BeatPattern] = []
+
 
 func _ready() -> void:
 	pitch_scale = Engine.time_scale
+
+	for node in get_tree().get_nodes_in_group("beat_pattern"):
+		if node is BeatPattern:
+			beat_patterns.append(node)
 
 
 func _process(_dt: float) -> void:
@@ -39,7 +47,6 @@ func _process(_dt: float) -> void:
 
 	if last_beat < curr_pos_beats:
 		beat.emit(curr_pos_beats)
-
 		last_beat = curr_pos_beats
 
 

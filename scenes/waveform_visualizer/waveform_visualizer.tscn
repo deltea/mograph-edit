@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cy5wxvvh6dxxx"]
 
 [ext_resource type="Script" uid="uid://bwsu2iv8n3008" path="res://scenes/waveform_visualizer/waveform_visualizer.gd" id="1_jo4jv"]
+[ext_resource type="Material" uid="uid://dlrtru05h81ib" path="res://assets/materials/waveform.tres" id="1_sj4db"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_38or4"]
 
 [node name="WaveformVisualizer" type="MeshInstance3D" unique_id=292837804]
+material_override = ExtResource("1_sj4db")
 mesh = SubResource("ImmediateMesh_38or4")
 script = ExtResource("1_jo4jv")

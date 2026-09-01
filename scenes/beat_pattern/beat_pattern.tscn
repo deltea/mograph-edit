@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b24jkkhxpfi4q"]
+
+[ext_resource type="Script" uid="uid://b6vtv3h0vkior" path="res://scenes/beat_pattern/beat_pattern.gd" id="1_t6a8f"]
+
+[node name="BeatPattern" type="Node" unique_id=932858394 groups=["beat_pattern"]]
+script = ExtResource("1_t6a8f")
